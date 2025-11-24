@@ -1,0 +1,12 @@
+# === CORE DO PROJETO ===
+streamlit
+langchain
+langchain-community
+langchain-groq
+langchain-core
+
+# === EMBEDDINGS E VECTOR STORE ===
+fastembed
+chromadb
+# === OPCIONAL (mas usado na versão anterior) ===
+python-dotenv
