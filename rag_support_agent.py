@@ -8,7 +8,7 @@ from langchain_core.runnables import RunnablePassthrough
 
 # === CONFIGURAÇÃO DA CHAVE GROQ (2 OPÇÕES) ===
 # Opção 1: Cole sua chave aqui (só pra teste local)
-os.environ["GROQ_API_KEY"] = "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"  # ← SUBSTITUA
+os.environ["GROQ_API_KEY"] = "CHAVE API GROQ"  # ← SUBSTITUA
 
 # Opção 2: (RECOMENDADO) Use st.secrets no Streamlit (deixe comentado por enquanto)
 # import streamlit as st

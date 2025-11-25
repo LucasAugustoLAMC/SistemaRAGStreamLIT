@@ -8,7 +8,7 @@ st.set_page_config(
     layout="centered"
 )
 
-# ==================== FORÇA CORES LEGÍVEIS (CLARO E ESCURO) ====================
+# ==================== CSS ====================
 st.markdown("""
 <style>
     /* Fundo geral */
