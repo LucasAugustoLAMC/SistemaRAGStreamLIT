@@ -40,11 +40,11 @@ Consumo médio por 1.000 mensagens: ~R$ 0,80
 
 =================================================================================================================================================================================
 
-Caso de Teste   Pergunta                           Resposta Esperada                  Resultado                      Observação
-TC001           Qual o prazo de entrega?           3 a 7 dias úteis                   OK                             Resposta exata do contexto
+Caso de Teste   Pergunta                           Resposta Esperada                  Resultado           Observação
+TC001           Qual o prazo de entrega?           3 a 7 dias úteis                   OK                  Resposta exata do contexto
 TC002           Como trocar um produto?            Acessar Minha Conta > Pedidos      OK
-TC003           Vocês entregam no Alasca?          Encaminhar para humano             OK                             "Resposta: ""Vou encaminhar seu caso..."""
-TC004           Quem é o presidente do Brasil?     Encaminhar para humano             OK                             Não está na base → fallback correto
+TC003           Vocês entregam no Alasca?          Encaminhar para humano             OK                  "Resposta: ""Vou encaminhar seu caso..."""
+TC004           Quem é o presidente do Brasil?     Encaminhar para humano             OK                  Não está na base → fallback correto
 
 =================================================================================================================================================================================
 
@@ -58,21 +58,20 @@ Total                      | < R$ 50,00
 
 =================================================================================================================================================================================
 
-ID      Risco / Problema                                Probabilidade     Impacto    Status          Ação de Mitigação implantada
-
-
-R01     Chave da API Groq exposta publicamente          Baixa             Alto       Mitigado        Chave revogada e substituída + uso de st.secrets em produção
-
-R02     Excesso de consumo da cota gratuita             Média             Médio      Monitorado      Limite de 100 mensagens/dia no protótipo + alerta por e-mail quando atingir 80% da cota
-
-R03     Base de conhecimento desatualizada              Alta              Médio      Controlado      Documentação clara de como atualizar KNOWLEDGE_BASE + versão com upload de CSV/PDF (futura)
-
-R04     Modelo Groq fora do ar ou depreciado            Baixa             Alto       Mitigado        Fallback automático para llama-3.1-8b-instant (modelo mais estável) + lista de 3 modelos alternativos
-
-R05     Respostas fora do contexto (alucinação)         Média             Alto       Eliminado       Uso rigoroso de RAG + instrução “responda apenas com o contexto” + fallback para humano
-
-R06     Falha na persistência do ChromaDB               Baixa             Médio      Resolvido       Migração de SQLite-VSS → ChromaDB (persistência automática)
-
-R07     Interface ilegível no tema escuro               Média             Baixo      Corrigido       CSS personalizado com cores fixas e contraste garantido
-
-R08     Bloqueio regional da Groq em alguns países      Muito baixa       Médio      Monitorad      Alternativa pronta com Ollama local ou Together.ai (caso necessário)
+ID   |  Risco / Problema                              | Probabilidade  |  Impacto |  Status     |    Ação de Mitigação implantada
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+R01  |  Chave da API Groq exposta publicamente        | Baixa          |  Alto    |  Mitigado   |    Chave revogada e substituída + uso de st.secrets em produção
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+R02  |  Excesso de consumo da cota gratuita           | Média          |  Médio   |  Monitorado |    Limite de 100 mensagens/dia no protótipo + alerta por e-mail quando atingir 80% da cota
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+R03  |  Base de conhecimento desatualizada            | Alta           |  Médio   |  Controlado |    Documentação clara de como atualizar KNOWLEDGE_BASE + versão com upload de CSV/PDF (futura)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+R04  |  Modelo Groq fora do ar ou depreciado          | Baixa          |  Alto    |  Mitigado   |    Fallback automático para llama-3.1-8b-instant (modelo mais estável) + lista de 3 modelos alternativos
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+R05  |  Respostas fora do contexto (alucinação)       | Média          |  Alto    |  Eliminado  |    Uso rigoroso de RAG + instrução “responda apenas com o contexto” + fallback para humano
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+R06  |  Falha na persistência do ChromaDB             | Baixa          |  Médio   |  Resolvido  |    Migração de SQLite-VSS → ChromaDB (persistência automática)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+R07  |  Interface ilegível no tema escuro             | Média          |  Baixo   |  Corrigido  |    CSS personalizado com cores fixas e contraste garantido
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+R08  |  Bloqueio regional da Groq em alguns países    | Muito baixa    |  Médio   |  Monitorad  |   Alternativa pronta com Ollama local ou Together.ai (caso necessário)
